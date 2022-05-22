@@ -23,9 +23,20 @@ body {
     position: relative;
 }
 
+.progress-group::after {
+    content: '';
+    width: 350px;
+    height: 5px;
+    background-color: var(--line-border-empty);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+}
+
 .progress {
     width: 350px;
-    height: 2px;
+    height: 4px;
     background-color: var(--line-border-fill);
     position: absolute;
     top: 50%;
@@ -41,7 +52,7 @@ body {
     text-align: center;
     line-height: 30px;
     color: #999;
-    border: 3px solid #999;
+    border: 3px solid var(--line-border-empty);
 }
 
 .circle:not(:last-child):after {
@@ -57,5 +68,13 @@ button {
     border: 0;
     border-radius: 5px;
     color: #FFFFFF;
+    cursor: pointer;
 }
 
+.active {
+    border-color: var(--line-border-fill);
+}
+
+.disable {
+    background-color: var(--line-border-empty);
+}
